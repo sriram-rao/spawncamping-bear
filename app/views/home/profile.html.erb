@@ -7,7 +7,7 @@
 <div class= "span4">
 <h2><%= "#{@user.nickname}'s Profile " %></h2>
 <ul>
-<li><h4> <%= "Inventory size: #{@items.count} items" %></h4></li>
+<li><h4> <%= "Inventory size: #{@inventory.size} items" %></h4></li>
 <li><h4 class = <%= user_status(@user.online?)%> > <%= "#{user_status(@user.online?)}" %></h4></li>
 <li><h4> Profile url: <%=  link_to @user.base_url , @user.base_url %></h4></li>
 </ul>
@@ -15,10 +15,12 @@
 </div>
 </div> <br /> <br /><br />
 
-
-
 <div class= "row">
-<span> <%= text_field_tag :text => "Search" %> </span>
+<%= form_tag({action: "profile"},method: "post") do %> 
+	<span class = "search"><%= submit_tag("Search", :class => 'btn btn-primary') %></span>
+	<span class = "search"> <%= text_field_tag(:search, nil) %> </span>
+	
+<% end %>
 <% if @current_user %>
 <%= render(:partial => "shared/display_items", :locals => {:items => @items}) %>
 <% end %>

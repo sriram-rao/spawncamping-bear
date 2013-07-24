@@ -6,6 +6,7 @@ Dota2::Application.routes.draw do
    root 'home#index'
    get "home/items" => "home#items"
    get "/profile" => "home#profile", :as => :profile
+   post "/profile" => "home#profile"
    post "/auth/:provider/callback/" => "sessions#create"
    get "/signout" => "sessions#destroy", :as => :signout
 

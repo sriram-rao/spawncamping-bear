@@ -18,9 +18,17 @@ class HomeController < ApplicationController
 	   	@inventory.items.each do |item|
 	   		 if !item.nil?
 	   		 temp = Image.find_by_item_id(item.defindex)
-	   		@items << [:img =>  temp[:url] , :quality => item.quality , :item_name => temp[:item_name] , :rarity => temp[:rarity]]
+	   		 if params[:search].nil?
+	   			@items << [:img =>  temp[:url] , :quality => item.quality , :item_name => temp[:item_name] , :rarity => temp[:rarity]]
+	   		 else
+	   			if temp[:item_name].downcase.include? params[:search].downcase
+		   			@items << [:img =>  temp[:url] , :quality => item.quality , :item_name => temp[:item_name] , :rarity => temp[:rarity]]
+		   		end
+		   	end
 	   	end
+
 	   end
 	   end
+
 	end
 end
