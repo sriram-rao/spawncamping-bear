@@ -15,3 +15,5 @@
 /log/*.log
 /tmp
 Dump
+
+/config/initializers/steam-condeser.rb
