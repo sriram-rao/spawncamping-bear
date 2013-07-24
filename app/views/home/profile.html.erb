@@ -1,0 +1,28 @@
+<div class = "bsa well">
+<div class = "row">
+
+	<div class= "span4">
+ <%= image_tag @user.full_avatar_url, :size => "184x184" , :class => "pro_pic"%>
+</div>
+<div class= "span4">
+<h2><%= "#{@user.nickname}'s Profile " %></h2>
+<ul>
+<li><h4> <%= "Inventory size: #{@items.count} items" %></h4></li>
+<li><h4 class = <%= user_status(@user.online?)%> > <%= "#{user_status(@user.online?)}" %></h4></li>
+<li><h4> Profile url: <%=  link_to @user.base_url , @user.base_url %></h4></li>
+</ul>
+</div>
+</div>
+</div> <br /> <br /><br />
+
+
+
+<div class= "row">
+<span> <%= text_field_tag :text => "Search" %> </span>
+<% if @current_user %>
+<%= render(:partial => "shared/display_items", :locals => {:items => @items}) %>
+<% end %>
+</div>
+
+
+

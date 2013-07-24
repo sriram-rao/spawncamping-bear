@@ -1,0 +1,5 @@
+<% @result.each do |item| %>
+<% if item[:url] != "" && item[:url] != "http://media.steampowered.com/apps/570/icons/econ/testitem_slot_empty.57f48103eed57e2cfa3d041f979f96a6869c1d22.png" %>
+<%= image_tag "#{item[:url]}",:size => "120x80", :title => item[:item_name]%>
+<% end %>
+<% end %>

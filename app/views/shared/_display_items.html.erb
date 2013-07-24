@@ -1,0 +1,15 @@
+<div class = "page-header"> <h1> Inventory </h1> </div>
+<div class = "bsa well">
+	<div class = "Inventory">
+<% if !@items.nil? %>
+<% @items.each do |itemh| %>
+<% if !itemh.nil? %>
+<% itemh.each do |item| %>
+<div class="rarity"> <%= image_tag "#{item[:rarity]}.png", :title => item[:item_name] %></div>
+<%= image_tag "#{item[:img]}",:size => "120x80", :class =>"item item-#{item[:quality]}"%>
+<% end %>
+<% end %>
+<% end %>
+<% end %>
+</div>
+</div>
